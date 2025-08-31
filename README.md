@@ -1,1 +1,0 @@
-# ALX-Airbnb-Database-Project-

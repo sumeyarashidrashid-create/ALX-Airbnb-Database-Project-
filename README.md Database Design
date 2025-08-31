@@ -1,0 +1,42 @@
+# ALX-Airbnb-Database-Project-
+##Overview 
+This project is part of the ALX software engineering program 
+The goal is to **design and build a robust relation database**for an Airbnb like application 
+It focuses on database design ,normalization schema creation ,and seeding with realistic data 
+By completing this task ,i will gain hands on experience in ;
+Relational database design and modelling 
+Applying normalization principles(up to #NF)
+Writing SQL scripts (DDL&DML)
+
+Simulating production level database system 
+collaboration using GitHub repositories and professional documentation 
+###Key Tasks 
+###**Task0;ER Diagram**
+Defined entities and relationships for the data base (Users, properties,Bookings ,Reviews,Payment )
+Created an ER diagram to visualize the design 
+Files:('/ERD')(./ERD)
+
+###Task1:** Normalization **
+Revoewed schema for redundancy and ensured complience with **Third Normal form(3NF) **
+-Documentend normalization ** steps with explantaion 
+-Files :{'/Normalization '}(./Normalization )
+###**Task 2: Schema creation**
+-SQL, DDL scripts to define the databae schema 
+-includes primary keys,foreign keys,and indexes for performance 
+###**Task 3: Data Seeding ** 
+-SQL,DML scripts to populate the database with **Realistic Airbnb -like data**
+-simulates users,properties ,booking,payment and reviews 
+
+-------
+####Repo structure
+
+ALX Airbnb Database 
+##learning objectives 
+Apply ** normalization ** to optimize database effeciency 
+-Use **SQL,DML** to seed realistic data.
+Develop collaboration and documentation skills 
+-----
+###Author 
+**(Your name )**
+ALX Software Engineering Student 
+-
