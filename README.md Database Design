@@ -40,3 +40,86 @@ Develop collaboration and documentation skills
 **(Your name )**
 ALX Software Engineering Student 
 -
+sql
+
+---Enable required extension 
+CREATE EXTENSION IF NOT EXISTS"pgcrypto";
+CREATE EXTENSION IF NOT EXIST "citext'; 
+----schema
+CREATE SCHEMA IF NOT EXISTS airbnb ;
+SET search -path TO airbnb;
+---Users 
+CREATE TABLE users (user-id UUID PRIMARY KEY DEFAULT gen-random -uuid()
+Email CITEXT UNIQUE NOT NULL ,
+password -hash TEXT NOT NULL ,
+Createdn-at TIMESTAMPTZ DEFAULT now () 
+NOT NULL 
+); 
+---Listings 
+CREATE TABLE Listings (
+listing-id UUID PRIMARY KEY DEFAULT gen-random -uuid () ,
+
+host -id UUID NOT NULL REFRENCES 
+Users (user -id) ON DELETE CASADE ,
+title TEXT NOT NULL ,
+price _per _night  NUMERIC (10,2 ) NOT NULL 
+CHECK (price_per_night >0) 
+created _at TIMESTAMPTZ DEFAULT now () 
+NOT NULL 
+);
+
+__Bookings 
+CREATE TABLE  bookings (
+booking -id UUID PRIMARY KEY DEFAULT 
+gen-random -uuid() 
+listing-id UUID NOT NULL REFRENCES 
+listings(listing -id)ON DELETE CASACDE ,
+guest -id UUID NOT NULL REFRENCES 
+Users(user-id) ON DELETE CASCADE ,
+Start-date DATE NOT NULL ,
+end -date DATE NOT NULL ,
+Created -at TIMESTAMPTZ DEFAULT now() 
+NOT NULL 
+CONSTRAINT no -overlap CHECK (end-date >start -date) 
+); 
+
+--Payments 
+CREATE TABLE payment (
+payment-id UUID PRIMARY KEY DEFAULT 
+gen-random -uuid () , 
+booking -UUID NOT NULL REFRENCES 
+bookings(booking-id) ON DELETE CASCADE <
+amount NUMERIC (10,2) NOT NULL CHECK
+(amount>0)
+status TEXT NOT NULL CHECK Status IN 
+('pending ', completed,failed )) 
+created -at TIMESTAMPTZ DEFAULT now () 
+NOT NULL 
+); 
+
+---- Reviews 
+CREATE TABLE reviews (
+review -id UUID PRIMARY KEY DEFAULT now 
+indexes for performance 
+CREATE INDEX idx-listings-host ON listings (host-id); 
+CREATE INDEX idx -bookings-listings ON bookings (listings-id) ;
+CREATE INDEX idx -payment-booking ON payment (booking-id) ;
+CREATE INDEX idx -reviews-booking ON reviews (booking-id); 
+
+README.md 
+
+###Overview 
+This shcema models a simplified Airbnb like platform with users ,listings,bookings,payment,and reviews 
+###Entities 
+-**Users*: Registered accounts 
+**Listings ** : Properties created by host 
+**Bookings** Reservation by guests 
+***Payments ** Transactions for bookings 
+**Reviews** :Guest feedback after stays 
+##Setup 
+Create a database ;
+''abash 
+created airbnb -dev
+Run schema 
+psql-d airbnb -dev -f database schema.sql 
+
